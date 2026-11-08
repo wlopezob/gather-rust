@@ -254,7 +254,7 @@ crates/
 xtask/            build WASM, límite de tamaño, tareas de CI
 docs/
   adr/            decisiones de arquitectura
-  bitacora.md     aprendizajes por lección
+  bitacora/       un archivo por lección: tus notas y mi revisión
 ```
 
 ## 10. Infraestructura y operación

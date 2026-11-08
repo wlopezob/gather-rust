@@ -16,7 +16,7 @@ Dedicación: 1,5 horas al día, unas 10 horas por semana. Las fechas de los punt
 3. **Implementación (tú).** Intentas primero. Si te trabas, pides una pista (ver la escalera).
 4. **Code review (yo).** Leo tu `git diff`, corro clippy y los tests, y comento como un lead: bloqueante, sugerencia o detalle, siempre con el porqué. Tú corriges.
 5. **Defensa (tú).** Te hago 3–5 preguntas de entrevista sobre lo que construiste. Las respondes con tus palabras.
-6. **Cierre (tú).** Commit, ADR si hubo una decisión, una entrada en `docs/bitacora.md`. Yo marco la lección en este plan.
+6. **Cierre (los dos).** Tú: commit, ADR si hubo una decisión y tus notas en `docs/bitacora/X.Y-nombre.md`. Yo: agrego mi revisión en ese archivo y marco la lección en este plan.
 
 ### Escalera de pistas
 
@@ -40,7 +40,7 @@ Solo subimos de nivel cuando lo pidas o después de un intento real. Copiar no e
 - Tests en verde (`cargo nextest run`), CI en verde.
 - Commit con mensaje convencional (`feat:`, `fix:`, `test:`, `docs:`).
 - ADR en `docs/adr/` si hubo una decisión de diseño.
-- Entrada en `docs/bitacora.md`: horas que te tomó, qué aprendiste, qué te costó y qué harías distinto.
+- Archivo `docs/bitacora/X.Y-nombre.md` con tus notas (horas, qué aprendiste, qué te costó, qué harías distinto) y mi revisión (code review, preguntas de defensa con la respuesta completa, temas para repasar).
 - Preguntas de defensa respondidas.
 
 ### Cómo retomar
@@ -78,11 +78,11 @@ Las fiestas de fin de año probablemente muevan las fechas desde la Fase 2. Las 
 
 ## Fase 0 · Preparación (≈1 semana)
 
-- [ ] **0.1 Diagnóstico y entorno**
+- [x] **0.1 Diagnóstico y entorno**
   - Funcional: ninguno todavía; dejamos lista la base del repositorio.
   - No funcional: toolchain fijado y builds reproducibles.
   - Rust: rustup y cargo; workspace virtual frente a un proyecto Maven multi-módulo; edición 2024; `Cargo.lock`; perfiles.
-  - Entregable: `git init`, workspace con un crate `world-core` vacío, `rust-toolchain.toml`, `.gitignore`, `docs/bitacora.md`, primer commit. Diagnóstico: 6 preguntas para calibrar tu punto de partida.
+  - Entregable: `git init`, workspace con un crate `world-core` vacío, `rust-toolchain.toml`, `.gitignore`, `docs/bitacora/`, primer commit. Diagnóstico: 6 preguntas para calibrar tu punto de partida.
 - [ ] **0.2 Calidad desde el día 1**
   - No funcional: gates de calidad automáticos en cada push.
   - Rust: rustfmt, clippy y `[workspace.lints]`, cargo-nextest, cargo-deny (licencias y vulnerabilidades).
