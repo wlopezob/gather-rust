@@ -83,7 +83,7 @@ Las fiestas de fin de año probablemente muevan las fechas desde la Fase 2. Las 
   - No funcional: toolchain fijado y builds reproducibles.
   - Rust: rustup y cargo; workspace virtual frente a un proyecto Maven multi-módulo; edición 2024; `Cargo.lock`; perfiles.
   - Entregable: `git init`, workspace con un crate `world-core` vacío, `rust-toolchain.toml`, `.gitignore`, `docs/bitacora/`, primer commit. Diagnóstico: 6 preguntas para calibrar tu punto de partida.
-- [ ] **0.2 Calidad desde el día 1**
+- [x] **0.2 Calidad desde el día 1**
   - No funcional: gates de calidad automáticos en cada push.
   - Rust: rustfmt, clippy y `[workspace.lints]`, cargo-nextest, cargo-deny (licencias y vulnerabilidades).
   - Entregable: GitHub Actions con fmt, clippy, tests y deny; README con el badge de CI.
