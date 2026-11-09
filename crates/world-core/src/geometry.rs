@@ -23,18 +23,13 @@ impl TilePos {
     pub fn step(self, dir: Direction) -> Option<TilePos> {
         let x = self.x;
         let y = self.y;
-        if (y == u16::MAX && dir == Direction::Down) || (x == u16::MAX && dir == Direction::Right) {
-            return None;
-        } else if (x == 0 && dir == Direction::Left) || (y == 0 && dir == Direction::Up) {
-            return None;
-        }
         let (x, y) = match dir {
-            Direction::Left => (x - 1, y),
-            Direction::Right => (x + 1, y),
-            Direction::Down => (x, y + 1),
-            Direction::Up => (x, y - 1),
+            Direction::Left => (x.checked_sub(1)?, y),
+            Direction::Right => (x.checked_add(1)?, y),
+            Direction::Down => (x, y.checked_add(1)?),
+            Direction::Up => (x, y.checked_sub(1)?),
         };
-        return Some(TilePos { x, y });
+        Some(TilePos { x, y })
     }
 }
 
@@ -71,21 +66,10 @@ mod tests {
     #[test]
     fn step_avanza_una_casilla() {
         let p = TilePos::new(10, 10);
-        let up = p.step(Direction::Up);
-        assert_eq!(10, up.unwrap().x);
-        assert_eq!(9, up.unwrap().y);
-
-        let down = p.step(Direction::Down);
-        assert_eq!(10, down.unwrap().x);
-        assert_eq!(11, down.unwrap().y);
-
-        let left = p.step(Direction::Left);
-        assert_eq!(9, left.unwrap().x);
-        assert_eq!(10, left.unwrap().y);
-
-        let right = p.step(Direction::Right);
-        assert_eq!(11, right.unwrap().x);
-        assert_eq!(10, right.unwrap().y);
+        assert_eq!(Some(TilePos::new(10, 9)), p.step(Direction::Up));
+        assert_eq!(Some(TilePos::new(10, 11)), p.step(Direction::Down));
+        assert_eq!(Some(TilePos::new(9, 10)), p.step(Direction::Left));
+        assert_eq!(Some(TilePos::new(11, 10)), p.step(Direction::Right));
     }
 
     #[test]
@@ -109,21 +93,10 @@ mod tests {
 
     #[test]
     fn opposite_es_involutiva() {
-        let d = Direction::ALL[0];
-        assert_eq!(d, d.opposite().opposite());
-        assert_ne!(d, d.opposite());
-
-        let d = Direction::ALL[1];
-        assert_eq!(d, d.opposite().opposite());
-        assert_ne!(d, d.opposite());
-
-        let d = Direction::ALL[2];
-        assert_eq!(d, d.opposite().opposite());
-        assert_ne!(d, d.opposite());
-
-        let d = Direction::ALL[3];
-        assert_eq!(d, d.opposite().opposite());
-        assert_ne!(d, d.opposite());
+        for d in Direction::ALL {
+            assert_eq!(d, d.opposite().opposite(), "fallo con {d:?}");
+            assert_ne!(d, d.opposite(), "fallo con {d:?}");
+        }
     }
 
     #[test]
