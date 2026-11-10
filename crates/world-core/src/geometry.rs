@@ -18,7 +18,7 @@ impl TilePos {
         Self { x, y }
     }
 
-    /// La casilla vecina en esa direccion; `None` si sale del rango de  `u16`.
+    /// La casilla vecina en esa dirección; Nonesi sale del rango de u16.
     #[must_use]
     pub fn step(self, dir: Direction) -> Option<TilePos> {
         let x = self.x;
@@ -103,9 +103,6 @@ mod tests {
     fn ida_y_vuelta_vuelve_al_origen() {
         let p = TilePos::new(10, 10);
         for d in Direction::ALL {
-            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
-            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
-            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
             assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
         }
     }

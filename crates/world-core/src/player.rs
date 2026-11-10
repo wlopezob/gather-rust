@@ -30,6 +30,8 @@ mod tests {
     #[test]
     fn new_acepta_str_y_string_y_mira_abajo() {
         let jugador = Player::new(PlayerId(1), "Ana", TilePos::new(2, 3));
+        let otro = Player::new(PlayerId(2), String::from("Beto"), TilePos::new(0, 0));
+        assert_eq!("Beto", otro.name);
         assert_eq!("Ana", jugador.name);
         assert_eq!(jugador.facing, Direction::Down);
         assert_eq!(jugador.id, PlayerId(1));

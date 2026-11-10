@@ -4,7 +4,7 @@ use crate::geometry::TilePos;
 pub struct TileMap {
     width: u16,
     height: u16,
-    blocked: Vec<bool>, // fila por fila: indice = y * width + x
+    blocked: Vec<bool>, // fila por fila: índice = y * width + x
 }
 
 impl TileMap {
@@ -86,5 +86,6 @@ mod tests {
         assert!(!map.is_walkable(TilePos::new(1, 0)));
         assert!(!map.is_walkable(TilePos::new(2, 1)));
         assert!(!map.is_walkable(TilePos::new(3, 0)));
+        assert!(!map.is_walkable(TilePos::new(u16::MAX, u16::MAX)));
     }
 }
