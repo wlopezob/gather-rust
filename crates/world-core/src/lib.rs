@@ -1,5 +1,6 @@
 mod geometry;
 //mod map;
-//mod player;
+mod player;
 
 pub use geometry::{Direction, TilePos};
+pub use player::{Player, PlayerId};

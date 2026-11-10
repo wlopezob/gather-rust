@@ -102,16 +102,11 @@ mod tests {
     #[test]
     fn ida_y_vuelta_vuelve_al_origen() {
         let p = TilePos::new(10, 10);
-        let d: Direction = Direction::ALL[0];
-        assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
-
-        let d = Direction::ALL[1];
-        assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
-
-        let d = Direction::ALL[2];
-        assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
-
-        let d = Direction::ALL[3];
-        assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
+        for d in Direction::ALL {
+            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
+            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
+            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
+            assert_eq!(Some(p), p.step(d).and_then(|q| q.step(d.opposite())));
+        }
     }
 }
