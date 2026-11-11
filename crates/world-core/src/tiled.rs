@@ -1,6 +1,6 @@
 use serde::Deserialize;
 
-pub const COLLISION_MAYER: &str = "colisiones";
+pub const COLLISION_LAYER: &str = "colisiones";
 pub const MAX_MAP_SIDE: u16 = 1024;
 pub const MAX_TMJ_BYTES: usize = 16 * 1024 * 1024; // 16 MiB
 
@@ -22,11 +22,26 @@ struct RawMap {
 
 #[derive(Debug, thiserror::Error)]
 pub enum MapError {
-    #[error("El archivo pesa {bytes} bytes; el maximo es {MAX_TMJ_BYTES}")]
+    #[error("el archivo pesa {bytes} bytes; el máximo es {MAX_TMJ_BYTES}")]
     FileTooLarge { bytes: usize },
 
-    #[error("JSON invalid {0}")]
+    #[error("JSON invalid: {0}")]
     Json(#[from] serde_json::Error),
+
+    #[error("los mapas infinitos no estan soportados")]
+    Infinite,
+
+    #[error("algun lado vale 0 o pasa de 1024, width: {width}, height: {height}")]
+    InvalidSize { width: u32, height: u32 },
+
+    #[error("no hay ninguna capa llama colisiones")]
+    MissingCollisionLayer,
+
+    #[error("la capa colisiones existe pero es de otro tipo, por ejemplo {kind}")]
+    NoATitleLayer { kind: String },
+
+    #[error("data no tiene width x height numeros")]
+    WrongLayerSize { expected: usize, actual: usize },
 }
 
 fn find_layer<'a>(layers: &'a [RawLayer], name: &str) -> Option<&'a RawLayer> {
@@ -39,19 +54,20 @@ mod tests {
 
     #[test]
     fn find_layer_busca_por_nombre() {
-        let raw_layers: Vec<RawLayer> = vec![
+        let raw_layers = vec![
             RawLayer {
                 name: String::from("suelo"),
-                kind: String::from(""),
+                kind: String::from("tilelayer"),
                 data: None,
             },
             RawLayer {
                 name: String::from("colisiones"),
-                kind: String::from(""),
+                kind: String::from("tilelayer"),
                 data: None,
             },
         ];
-        assert!(find_layer(&raw_layers, "colisiones").is_some());
+        let colisiones = find_layer(&raw_layers, "colisiones").expect("La capa existe");
+        assert_eq!(colisiones.name, "colisiones");
         assert!(find_layer(&raw_layers, "muros").is_none());
     }
 }
