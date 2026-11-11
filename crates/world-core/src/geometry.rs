@@ -18,7 +18,7 @@ impl TilePos {
         Self { x, y }
     }
 
-    /// La casilla vecina en esa dirección; Nonesi sale del rango de u16.
+    /// La casilla vecina en esa dirección; `None` si sale del rango de `u16`.
     #[must_use]
     pub fn step(self, dir: Direction) -> Option<TilePos> {
         let x = self.x;
