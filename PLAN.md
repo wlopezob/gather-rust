@@ -90,7 +90,7 @@ Las fiestas de fin de año probablemente muevan las fechas desde la Fase 2. Las 
 
 ## Fase 1 · world-core: la simulación (≈4–5 semanas)
 
-- [ ] **1.1 Tipos del dominio**
+- [x] **1.1 Tipos del dominio**
   - Funcional: posiciones en tiles, direcciones, jugadores y un mapa con capa de colisión.
   - No funcional: determinismo; la misma entrada da el mismo resultado en servidor y navegador. ADR-001: movimiento por tiles enteros.
   - Rust: structs y enums, newtype (`PlayerId`), `derive`, `Copy` vs `Clone` vs move, bloques `impl`, módulos y visibilidad, `Option`.
