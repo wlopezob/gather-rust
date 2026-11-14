@@ -101,7 +101,7 @@ Las fiestas de fin de año probablemente muevan las fechas desde la Fase 2. Las 
   - No funcional: determinismo; la misma entrada da el mismo resultado en servidor y navegador. ADR-001: movimiento por tiles enteros.
   - Rust: structs y enums, newtype (`PlayerId`), `derive`, `Copy` vs `Clone` vs move, bloques `impl`, módulos y visibilidad, `Option`.
   - Entregable: tipos del dominio con tests unitarios.
-- [ ] **1.2 Cargar mapas de Tiled**
+- [x] **1.2 Cargar mapas de Tiled**
   - Funcional: usar mapas hechos en el editor Tiled (`.tmj`).
   - No funcional: el mapa es input no confiable; límites de tamaño, errores claros y ningún `panic`.
   - Rust: serde, `Result` y `?`, `thiserror`, `From`, lifetimes básicos.

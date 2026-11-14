@@ -4,9 +4,9 @@ Actualizado el 14 de noviembre de 2026. El plan está en [`PLAN.md`](PLAN.md); e
 
 ## Ahora
 
-- **Lección en curso: 1.2 Cargar mapas de Tiled.** El código quedó aprobado el 13 de noviembre: 22 tests, clippy y deny limpios.
-- **Falta para cerrarla:** tus notas en `docs/bitacora/1.2-mapas-tiled.md`, el PR con el CI en verde y las preguntas de defensa.
-- **Después:** crear el `justfile` con la receta `check` y empezar la 1.3.
+- **1.2 cerrada el 14 de noviembre.** Falta mergear el PR #4, con la revisión del profesor ya en la bitácora.
+- **Siguiente:** crear el `justfile` con la receta `check` y empezar la 1.3 (Movimiento y colisiones). Lectura previa: Book cap. 4.
+- **La 1.3 abre con** las dos primeras preguntas de "Temas pendientes de repaso".
 
 ## Lecciones
 
@@ -15,9 +15,9 @@ Actualizado el 14 de noviembre de 2026. El plan está en [`PLAN.md`](PLAN.md); e
 | 0.1 Diagnóstico y entorno | 8 nov 2026 | 1 | – |
 | 0.2 Calidad desde el día 1 | 8 nov 2026 | 1 | #1, #2 |
 | 1.1 Tipos del dominio | 10 nov 2026 | 3 | #3 |
-| 1.2 Cargar mapas de Tiled | En curso | – | – |
+| 1.2 Cargar mapas de Tiled | 14 nov 2026 | 4 | #4 |
 
-Las 5 horas anotadas parecen menos que las reales. Desde la 1.2 se anota una línea por sesión (fecha y minutos), porque el recálculo del Hito 1 depende de ese dato.
+Total anotado: 9 horas en 13 días. Desde la 1.3, una línea por sesión (fecha y minutos), porque el recálculo del Hito 1 depende de ese dato.
 
 ## Puntos de control
 
@@ -50,11 +50,15 @@ Estados: Pendiente → Borrador (en revisión) → Publicado.
 
 ## Temas pendientes de repaso
 
-De aquí salen las 2 preguntas con las que abre cada lección. Un tema sale de la lista cuando lo respondes bien.
+De aquí salen las 2 preguntas con las que abre cada lección, en el orden de la lista. Un tema sale de la lista cuando lo respondes bien.
 
-- Préstamo (`&self`) frente a copia, `clone` y move.
-- Desbordamiento y conversiones con `usize::from`. Falló en la defensa de la 1.1 y volvió a aparecer en el código de la 1.2.
-- El `?` con `Option` y con `Result`.
+1. **Desbordamiento al multiplicar medidas y `usize::from`.** Tres veces: defensa de la 1.1, código de la 1.2 y repaso R1 de la 1.2 (faltó `release`).
+2. **Límites antes de procesar input no confiable.** Defensa D2 de la 1.2, sin responder.
+3. **`clone` duplica, no transfiere; `&` cuando solo lees.** Repaso R2 de la 1.2: confusión entre clonar y pasar el dueño.
+4. **Lifetimes: qué une `'a` entre la entrada y la salida.** Defensa D4 de la 1.2: se confundió con un genérico de tipo.
+5. **Invariantes y deserialización: por qué un `derive` puede saltarse `new`.** Defensa D3 de la 1.2: faltó la razón principal.
+
+Ya superados: el `?` con `Result` y `From` (D1 de la 1.2).
 
 ## Pendientes fuera de las lecciones
 
