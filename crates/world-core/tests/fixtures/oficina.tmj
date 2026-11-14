@@ -1,0 +1,31 @@
+{
+  "type": "map",
+  "version": "1.10",
+  "tiledversion": "1.11.2",
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "infinite": false,
+  "width": 4,
+  "height": 3,
+  "tilewidth": 32,
+  "tileheight": 32,
+  "nextlayerid": 3,
+  "nextobjectid": 1,
+  "tilesets": [],
+  "layers": [
+    {
+      "id": 1, "name": "suelo", "type": "tilelayer",
+      "width": 4, "height": 3, "x": 0, "y": 0, "opacity": 1, "visible": true,
+      "data": [1, 1, 1, 1,
+               1, 1, 1, 1,
+               1, 1, 1, 1]
+    },
+    {
+      "id": 2, "name": "colisiones", "type": "tilelayer",
+      "width": 4, "height": 3, "x": 0, "y": 0, "opacity": 1, "visible": true,
+      "data": [5, 5, 5, 5,
+               5, 0, 0, 5,
+               5, 5, 0, 5]
+    }
+  ]
+}
