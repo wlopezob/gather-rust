@@ -18,7 +18,7 @@ Por dónde vamos, las fechas reales y los temas pendientes de repaso están en [
 1. **Repaso (los dos).** Antes de empezar, 2 preguntas tomadas de los temas pendientes de `PROGRESO.md`. La que falles vuelve en la lección siguiente, hasta que salga bien.
 2. **Lectura (tú).** 20–30 minutos del capítulo que indica la lección, antes de implementar.
 3. **Contexto (yo).** Qué construimos y para qué: el objetivo funcional, el no funcional (rendimiento, seguridad, operación) y los conceptos de Rust nuevos, con su equivalente en Java cuando ayude. Una lectura corta.
-4. **Especificación (yo).** Firmas públicas, criterios de aceptación y casos de prueba que debes escribir. Desde la 1.3, una parte de cada lección va **sin guía**: solo el requisito y los tests que debe pasar.
+4. **Especificación (yo).** Firmas públicas, criterios de aceptación y casos de prueba que debes escribir. Lo nuevo va guiado: explicación y un ejemplo completo que escribes y adaptas. Va **sin guía** (solo el requisito y los tests que debe pasar) únicamente lo que ya practicaste en una lección anterior.
 5. **Implementación (tú).** Intentas primero. Si te trabas, pides una pista (ver la escalera).
 6. **Code review (yo).** Leo tu `git diff`, corro clippy y los tests, y comento como un lead: bloqueante, sugerencia o detalle, siempre con el porqué. Tú corriges.
 7. **Defensa (tú).** Te hago 3–5 preguntas de entrevista sobre lo que construiste. Las respondes con tus palabras.
@@ -36,7 +36,7 @@ Solo subimos de nivel cuando lo pidas o después de un intento real. Copiar no e
 
 | Fases | Qué te doy yo | Qué haces tú |
 |---|---|---|
-| 0–1 | Explicación, firmas y ejemplos para cada concepto nuevo. Desde la 1.3, una parte sin guía por lección | Implementar y escribir los tests |
+| 0–1 | Explicación, firmas y un ejemplo completo para cada concepto nuevo. Sin guía solo lo ya practicado | Implementar y escribir los tests |
 | 2–3 | Firmas y criterios de aceptación | Implementar, diseñar los tests |
 | 4–7 | Solo requisitos y restricciones | Diseñar firmas, módulos y tests; defender el diseño |
 
@@ -107,14 +107,14 @@ Las fiestas de fin de año probablemente muevan las fechas desde la Fase 2. Las 
   - Rust: serde, `Result` y `?`, `thiserror`, `From`, lifetimes básicos.
   - Lectura (repaso al cerrar): Book cap. 9 (manejo de errores).
   - Entregable: loader de mapas con fixtures válidos e inválidos.
-- [ ] **Antes de la 1.3: `just check`**
+- [x] **Antes de la 1.3: `just check`**
   - Instalar `just` y crear un `justfile` con la receta `check`: fmt, clippy, nextest y deny. Es el comando que corres antes de cada "revisa".
-- [ ] **1.3 Movimiento y colisiones**
+- [x] **1.3 Movimiento y colisiones**
   - Funcional: mover un avatar; las paredes y los bordes bloquean.
   - No funcional: invariantes verificadas con property testing.
   - Rust: `&self` vs `&mut self`, el borrow checker en la práctica, `HashMap`, `match` exhaustivo, `proptest`.
   - Lectura: Book cap. 4 (ownership y préstamos) y cap. 8 (colecciones, la parte de `HashMap`).
-  - Sin guía: la propiedad de `proptest` la diseñas tú.
+  - Guiada: la propiedad de `proptest` con un ejemplo completo explicado (cambio del 18 nov: `proptest` es nuevo; ver "Especificación").
   - Entregable: `World::apply` que acepta o rechaza un input, y la propiedad "nadie termina dentro de una pared".
 - [ ] **1.4 Proximidad**
   - Funcional: saber quién está cerca de quién, con histéresis (entrar a 5 tiles, salir a 7).
