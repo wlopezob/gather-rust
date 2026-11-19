@@ -1,12 +1,12 @@
 # Progreso
 
-Actualizado el 14 de noviembre de 2026. El plan está en [`PLAN.md`](PLAN.md); este archivo dice por dónde vamos.
+Actualizado el 18 de noviembre de 2026. El plan está en [`PLAN.md`](PLAN.md); este archivo dice por dónde vamos.
 
 ## Ahora
 
-- **1.2 cerrada el 14 de noviembre.** Falta mergear el PR #4, con la revisión del profesor ya en la bitácora.
-- **Siguiente:** crear el `justfile` con la receta `check` y empezar la 1.3 (Movimiento y colisiones). Lectura previa: Book cap. 4.
-- **La 1.3 abre con** las dos primeras preguntas de "Temas pendientes de repaso".
+- **1.3 cerrada el 18 de noviembre.** Falta abrir y mergear su PR, con la revisión del profesor ya en la bitácora.
+- **Siguiente:** 1.4 Proximidad (grilla espacial, histéresis 5/7, `criterion`). Lectura previa: Book cap. 13 (closures e iteradores) y cap. 10 (genéricos y traits).
+- **La 1.4 abre con** las dos preguntas de repaso de los temas 1 y 2.
 
 ## Lecciones
 
@@ -16,8 +16,9 @@ Actualizado el 14 de noviembre de 2026. El plan está en [`PLAN.md`](PLAN.md); e
 | 0.2 Calidad desde el día 1 | 8 nov 2026 | 1 | #1, #2 |
 | 1.1 Tipos del dominio | 10 nov 2026 | 3 | #3 |
 | 1.2 Cargar mapas de Tiled | 14 nov 2026 | 4 | #4 |
+| 1.3 Movimiento y colisiones | 18 nov 2026 | 2 (3 sesiones: 30, 40 y 50 min) | – |
 
-Total anotado: 9 horas en 13 días. Desde la 1.3, una línea por sesión (fecha y minutos), porque el recálculo del Hito 1 depende de ese dato.
+Total anotado: 11 horas en 17 días. Desde la 1.3, una línea por sesión (fecha y minutos), porque el recálculo del Hito 1 depende de ese dato.
 
 ## Puntos de control
 
@@ -52,13 +53,12 @@ Estados: Pendiente → Borrador (en revisión) → Publicado.
 
 De aquí salen las 2 preguntas con las que abre cada lección, en el orden de la lista. Un tema sale de la lista cuando lo respondes bien.
 
-1. **Desbordamiento al multiplicar medidas y `usize::from`.** Tres veces: defensa de la 1.1, código de la 1.2 y repaso R1 de la 1.2 (faltó `release`).
-2. **Límites antes de procesar input no confiable.** Defensa D2 de la 1.2, sin responder.
-3. **`clone` duplica, no transfiere; `&` cuando solo lees.** Repaso R2 de la 1.2: confusión entre clonar y pasar el dueño.
-4. **Lifetimes: qué une `'a` entre la entrada y la salida.** Defensa D4 de la 1.2: se confundió con un genérico de tipo.
-5. **Invariantes y deserialización: por qué un `derive` puede saltarse `new`.** Defensa D3 de la 1.2: faltó la razón principal.
+1. **Desbordamiento al multiplicar medidas y `usize::from`.** Cuatro veces: defensa de la 1.1, código de la 1.2, R1 de la 1.2 (faltó `release`) y R1 de la 1.3 (invirtió `debug` y `release`, y no planteó la cuenta del mapa de 257×257).
+2. **Límites antes de procesar input no confiable.** D2 de la 1.2, sin responder. R2 de la 1.3, parcial: faltó que serde construye todas las capas antes de revisar `width`, y propuso validar en el front, que no es un control de seguridad.
+3. **Invariantes y deserialización: por qué un `derive` puede saltarse `new`.** Defensa D3 de la 1.2: faltó la razón principal.
+4. **Préstamo de un campo frente a préstamo de todo `self` a través de un método.** E0502 de la 1.3: costó entenderlo; la nota final aún dice "otro objeto de esa clase" en lugar de "otro campo del mismo objeto".
 
-Ya superados: el `?` con `Result` y `From` (D1 de la 1.2).
+Ya superados: el `?` con `Result` y `From` (D1 de la 1.2); `clone` frente a `&` (D1 y E0382 de la 1.3); qué une `'a` entre la entrada y la salida (D2 de la 1.3).
 
 ## Pendientes fuera de las lecciones
 
